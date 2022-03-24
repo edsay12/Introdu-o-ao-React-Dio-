@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Api from './api';
 
 function App() {
+  const [user,SetUser] = useState({})
+  
+  async function clickUser(){
+    const ApiUser = await Api.get('/users/edsay12')
+    console.log(ApiUser.data)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div onClick={clickUser}>
+      Hello World
     </div>
   );
 }
